@@ -1,11 +1,11 @@
 #include<stdio.h>
 int main()
 {
-    float n;
+    double n;
     
     
-    scanf("%f",&n);
-    printf("%.2f",n);
+    scanf("%lf",&n);
+    printf("%.2lf",n);
     
     return 0;
 }
