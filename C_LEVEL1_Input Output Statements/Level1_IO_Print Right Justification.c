@@ -1,7 +1,8 @@
 #include<stdio.h>
 int main()
 {
-    int n;
-    scanf("%d",&n);
-    printf("%15d",n);
+	long long int num;
+	scanf("%lld",&num); 	
+	printf("%15lld",num);	
+	return  0;
 }
