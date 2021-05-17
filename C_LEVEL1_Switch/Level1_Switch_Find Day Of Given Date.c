@@ -1,5 +1,4 @@
 #include <stdio.h>
-
 int main () {
 	int d, m, y, weekday ;
 	scanf("%d/%d/%d",&d,&m,&y);
