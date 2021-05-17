@@ -1,40 +1,36 @@
 #include <stdio.h>
-#include<math.h>
 
-int numberOfDigits(int n)
-{
-	int cnt = 0;
-	while (n > 0) {
-		cnt++;
-		n /= 10;
-	}
-	return cnt;
+unsigned long power(int b, int e) {
+    unsigned long v=1,i;
+    for(i=0;i<e;i++) 
+        v *= b;
+    return v;
 }
 
-void cal(int num)
-{
-	int digits = numberOfDigits(num);
-	int powTen = pow(10, digits - 1);
-
-	for (int i = 0; i < digits - 1; i++) {
-
-		int firstDigit = num / powTen;
-
-		int left
-			= ((num * 10) + firstDigit)
-			- (firstDigit * powTen * 10);
-		printf("%d\n",left);
-
-
-		num = left;
-	}
+int countDigits(unsigned long n) {
+    int i=0;
+    while(n) {
+        n /= 10;
+        i++;
+    }
+    return i;
 }
 
+unsigned long rightRotate(unsigned long n, int digits) {
+    int rem = n % 10;
+    unsigned long b = power(10, digits-1);
+    n /= 10;
+    return rem * b + n; 
+}
 
-int main()
-{
-	int num;
-    scanf("%d",&num);
-	cal(num);
-	return 0;
+int main(void) {
+    unsigned long num,rot;
+    int d;
+    scanf("%lu",&num);
+    rot = num;
+    d = countDigits(num);
+    for(int i=0; i<d-1; i++) {
+        rot = rightRotate(rot, d);
+        printf("%d\n",rot);
+    }
 }
